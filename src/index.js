@@ -10,10 +10,13 @@ let app = express();
 app.server = http.createServer(app);
 
 //Middleware
-
+app.use(bodyParser.json({
+  limit: config.bodyLimit,
+}));
 //Passport Config
 
 //API routes v1
+
 
 app.use('/v1', routes);
 
