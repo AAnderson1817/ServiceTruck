@@ -18,6 +18,16 @@ api.post('/add', (req, res) => {
     }
     res.json({ message: "Landmark successfully documented!" });
   });
-})
+});
+
+api.get('/', (req,res) => {
+  Landmark.find({}, (err, landmarks) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json(landmarks);
+  });
+});
+
 return api;
 }
